@@ -40,12 +40,56 @@ namespace oapLabaSmirnov
              // при запуске программы будет выполняться код, который вы напишете тут
             */
 
+            /* третее задание
             Console.Write("Inpat radius: ");
             var radius = Console.ReadLine();
             var dlina = Convert.ToDouble(radius) * Math.PI * 2;
             var ploshad = Math.Pow(Convert.ToDouble(radius), 2) * Math.PI;
             Console.WriteLine($"dlina = {dlina}");
             Console.WriteLine($"Ploshad = {ploshad}");
+            Console.Write("Press ENTER to continue...");
+            Console.ReadLine();
+            */
+
+            // 2 задание
+            Console.Write("Input Xa: ");
+            var Xa = Console.ReadLine();
+            Console.Write("Input Ya: ");
+            var Ya = Console.ReadLine();
+            Console.Write("Input Xb: ");
+            var Xb = Console.ReadLine();
+            Console.Write("Input Yb: ");
+            var Yb = Console.ReadLine();
+            Console.Write("Input Xc: ");
+            var Xc = Console.ReadLine();
+            Console.Write("Input Yc: ");
+            var Yc = Console.ReadLine();
+
+            var AB = Math.Sqrt(
+            Math.Pow(Convert.ToDouble(Xb) - Convert.ToDouble(Xa), 2) +
+            Math.Pow(Convert.ToDouble(Yb) - Convert.ToDouble(Ya), 2)
+            );
+            var BC = Math.Sqrt(
+            Math.Pow(Convert.ToDouble(Xc) - Convert.ToDouble(Xb), 2) +
+            Math.Pow(Convert.ToDouble(Yc) - Convert.ToDouble(Yb), 2)
+            );
+            var AC = Math.Sqrt(
+            Math.Pow(Convert.ToDouble(Xc) - Convert.ToDouble(Xa), 2) +
+            Math.Pow(Convert.ToDouble(Yc) - Convert.ToDouble(Ya), 2)
+            );
+            var Perimetr = Convert.ToDouble(AB) + Convert.ToDouble(BC) + Convert.ToDouble(AC);
+
+            var PolyPerimetr = Convert.ToDouble(Perimetr) / 2;
+            var ploshad = Math.Sqrt(
+            Convert.ToDouble(PolyPerimetr) * (Convert.ToDouble(PolyPerimetr) - Convert.ToDouble(AB)) *
+            (Convert.ToDouble(PolyPerimetr) - Convert.ToDouble(BC)) *
+            (Convert.ToDouble(PolyPerimetr) - Convert.ToDouble(AC))
+            );
+            
+
+            Console.WriteLine($"Perimetr = {Perimetr}");
+            Console.WriteLine($"ploshad = {ploshad}");
+            
             Console.Write("Press ENTER to continue...");
             Console.ReadLine();
 
