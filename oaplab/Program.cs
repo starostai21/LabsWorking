@@ -11,9 +11,9 @@ namespace LabaBatei
     // про классы мы пока не говорили...
     class Program
     {
-         // точка входа в программу
-         static void Main(string[] args)
-         { /*
+        // точка входа в программу
+        static void Main(string[] args)
+        { /*
             // объявление массива
             var Massiv = new int[10];
 
@@ -84,12 +84,56 @@ namespace LabaBatei
                 Console.Write("\n{0} - нечет", Massiv[i]);
             }
             */
+            /*
+            Console.Write("Введите предел: ");
+            var KolChisel = Convert.ToDouble(Console.ReadLine());
+
+            var Number1 = 1;
+            var Number2 = 1;
+            var Summa = 0;
+            do {
+                Summa = Number1 + Number2;
+                Console.Write("\t{0}", Summa);
+                Number1 = Number2;
+                Number2 = Summa;
+            }
+            while (Summa < KolChisel);
+            */
+
+            Random Rand = new Random();
+            var ZagNum = Convert.ToInt32(Rand.Next(100));
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.Write("\nВведите число: ");
+                var Number = Convert.ToInt32(Console.ReadLine());
+
+                if (Number == ZagNum)
+                {
+                    Console.Write("Ты красавчиГ, отгадал число");
+                    break;
+                }
+                else if (Number > ZagNum)
+                {
+                    Console.Write("загаданное число меньше");
+                }
+                else
+                {
+                    Console.Write("загаданное число больше");
+                }
+            }
+
+            Console.WriteLine($"Загадано = {ZagNum}");
+
             Console.Write("\nPress ENTER to continue...");
             Console.ReadLine();
-         }
+
+
+            
+        }
          
     }
 }
  
+   
  
     
