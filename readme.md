@@ -12,7 +12,7 @@
   <tr>
     <td style="text-align: right; border: none; height: 20em;">
       Разработал:<br/>
-      Смирнов Евгений Алексеевич
+      Бастраков Сергей
     </td>
   </tr>
   <tr>
