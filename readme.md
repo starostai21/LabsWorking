@@ -11,8 +11,8 @@
   </tr>
   <tr>
     <td style="text-align: right; border: none; height: 20em;">
-      Разработал:<br/>
-      Бастраков Сергей
+      Разработала:<br/>
+      Пермякова Светлана
     </td>
   </tr>
   <tr>
