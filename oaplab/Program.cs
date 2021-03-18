@@ -1,87 +1,90 @@
 ﻿// подключены какие-то библиотеки
 using System;
+using Microsoft.VisualBasic.FileIO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
+using System.IO;
+using System.Xml.Serialization;
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 // namespace такой же как и название проекта
 namespace oapLaba
 {
-    public class People
+    public class Student
     {
         public string Name { get; set; }
         public string Familiya { get; set; }
         public string Otchestvo { get; set; }
-                
-        public People(string name, string familiya, string otchestvo)
+        public DateTime Birthday { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Facultet { get; set; }
+        public int Kurs { get; set; }
+        public Student(string name, string familiya, string otchestvo, DateTime birthday, string address, string phone, string facultet, int kurs)
         {
             Name = name;
             Familiya = familiya;
             Otchestvo = otchestvo;
+            Birthday = birthday;
+            Address = address;
+            Phone = phone;
+            Facultet = facultet;
+            Kurs = kurs;
         }
-        static void SpisokStudent()
+
+        public Student()
         {
-            XDocument xdoc = new XDocument();
-            // создаем первый элемент
-            XElement iphone6 = new XElement("phone");
-            // создаем атрибут
-            XAttribute iphoneNameAttr = new XAttribute("name", "iPhone 6");
-            XElement iphoneCompanyElem = new XElement("company", "Apple");
-            XElement iphonePriceElem = new XElement("price", "40000");
-            // добавляем атрибут и элементы в первый элемент
-            iphone6.Add(iphoneNameAttr);
-            iphone6.Add(iphoneCompanyElem);
-            iphone6.Add(iphonePriceElem);
-
-            // создаем второй элемент
-            XElement galaxys5 = new XElement("phone");
-            XAttribute galaxysNameAttr = new XAttribute("name", "Samsung Galaxy S5");
-            XElement galaxysCompanyElem = new XElement("company", "Samsung");
-            XElement galaxysPriceElem = new XElement("price", "33000");
-            galaxys5.Add(galaxysNameAttr);
-            galaxys5.Add(galaxysCompanyElem);
-            galaxys5.Add(galaxysPriceElem);
-
-            // создаем корневой элемент
-            XElement phones = new XElement("phones");
-            // добавляем в корневой элемент
-            phones.Add(iphone6);
-            phones.Add(galaxys5);
-            // добавляем корневой элемент в документ
-            xdoc.Add(phones);
-            //сохраняем документ
-            xdoc.Save("phones.xml");
+        }
+        public void GetInfo()
+        {
+            Console.WriteLine($"Имя: {Name}");
         }
     }
-    /*public class Teacher:People
+    class Program
     {
+        public void Main(string[] args)
+        {
+            var Students = new List<Student>();
 
-    }*/
-    public class Subject
-    {
-        public string NameSubject { get; set; }
-        public string Teacher { get; set; }
-        public Subject(string namesubject, string teacher)
-        {
-            NameSubject = namesubject;
-            Teacher = teacher;            
-        }
-    }
-    public class Grade
-    {
-        public string Subject { get; set; }
-        public int Value { get; set; }
-        public DateTime Date { get; set; }
-        public Grade(string subject, int value, DateTime date)
-        {
-            Subject = subject;
-            Value = value;
-            Date = date;
+            using (TextFieldParser parser = new TextFieldParser(@"Data.csv"))
+            {
+                // свойство TextFieldType определяет тип полей: с разделителями или фиксированной ширины
+                parser.TextFieldType = FieldType.Delimited;
+
+                // можно указать произвольный разделитель
+                parser.SetDelimiters(",");
+
+                // считываем пока не дойдем до конца файла
+                while (!parser.EndOfData)
+                {
+                    //метод ReadFields разбивает исходную строку на массив строк
+                    string[] fields = parser.ReadFields();
+
+                    Student tom = new Student();
+                    tom.Name = fields[1];
+                    tom.Familiya = fields[0];
+                    tom.Otchestvo = fields[2];
+                    Regex regex = new Regex(@"(\d\d)\.(\d\d)\.(\d{4})");
+                    MatchCollection matches = regex.Matches(fields[3]);
+                    if(matches.Count == 4)
+                    {
+                        tom.Birthday = new DateTime();
+
+                        Students.Add(tom);
+                    }
+                    
+                }
+            }
+
+            //tom.GetInfo();  // тут уже делаем что хотим с полученными значениями
+            Console.ReadKey();
         }
     }
 
+    
+   
 }
     
