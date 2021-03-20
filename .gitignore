@@ -1,3 +1,5 @@
-*/bin/
+oaplab/bin/Debug/*
+!oaplab/bin/Debug/Data.csv
 */obj/
 .vs
+.jpeg
