@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Сarriages>
+    <Сarriage Name="Повозка 1">
+    <Speed>20</Speed>
+    <LiftingCapacity>40</LiftingCapacity>
+    <DopBabki>1000</DopBabki>
+    </Сarriage>
+    <Сarriage Name="Повозка 2">
+    <Speed>25</Speed>
+    <LiftingCapacity>45</LiftingCapacity>
+    <DopBabki>800</DopBabki>
+    </Сarriage>
+    <Сarriage Name="Повозка 3">
+    <Speed>30</Speed>
+    <LiftingCapacity>50</LiftingCapacity>
+    <DopBabki>3000</DopBabki>
+    </Сarriage>
+</Сarriages>

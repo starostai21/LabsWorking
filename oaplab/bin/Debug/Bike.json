@@ -1,0 +1,33 @@
+[
+    {
+        "Name" : "Салют",
+        "Speed" : 15,
+        "LiftingCapacity" : 40,
+        "Price" : 10,
+        "TimeWork" : 8
+        },
+        {
+        "Name" : "Стелс",
+        "Speed" : 18,
+        "LiftingCapacity" : 50,
+        "Price" : 12,
+        "TimeWork" : 8
+        },
+        {
+            "Name" : "Кама",
+            "Speed" : 30,
+            "LiftingCapacity" : 60,
+            "Price" : 14,
+            "TimeWork" : 8 
+        },
+        {
+            "Name" : "Велик бати",
+            "Speed" : 50,
+            "LiftingCapacity" : 100,
+            "Price" : 20,
+            "TimeWork" : 8 
+        }
+        
+       
+
+]
